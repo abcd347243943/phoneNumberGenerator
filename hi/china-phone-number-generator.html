@@ -72,5 +72,16 @@
 </script>
 <script>    document.getElementById('generateButton').addEventListener('click', function() {        try {            const phoneNumber = generateChinaPhoneNumber();            document.getElementById('phoneNumberDisplay').innerHTML += phoneNumber + '<br />';            document.getElementById('errorDisplay').innerHTML = '';        } catch (error) {            document.getElementById('errorDisplay').innerHTML = 'Failed to generate number. Please try again.';        }    });
     function generateChinaPhoneNumber() {        const prefix = '1';        const secondDigit = Math.floor(Math.random() * 7) + 3;         let restOfNumber = '';        for(let i = 0; i < 9; i++) {            restOfNumber += Math.floor(Math.random() * 10);        }        return prefix + secondDigit + restOfNumber;    }</script>
+<div style="display:none">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-WKHJCEWXNF"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-WKHJCEWXNF');
+</script>
+</div>
 </body>
 </html>
