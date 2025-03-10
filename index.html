@@ -1,0 +1,77 @@
+<!DOCTYPE html><html lang="en">
+<head>    
+	<meta charset="UTF-8">    
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">    
+	<title>Phone Number Generator,China,India,US,Indonesia,Brazil,Pakistan,Nigeria,Bangladesh,Russia,Japan</title>
+	<meta name="description" content="Easily generate phone numbers for top countries like China,India,US,Indonesia,Brazil,Pakistan,Nigeria,Bangladesh,Russia,Japan.Phone Number Generator, Perfect for testing, verification, and various applications.">   
+	<link rel="stylesheet" href="styles.css"> <!-- 这里连接到您的CSS样式表 -->
+</head>
+<body>    
+	<header>    
+	<h1 class="logo" >  <a href="./" title="Phone Number Generator">Phone Number Generator</a></h1>  
+	<div class="language-list">    
+	<a class="curr" href="./" title="English">English</a>    <a href="./hi/" title="हिन्दी">हिन्दी</a>    
+	<a href="./tl/" title="Filipino">Filipino</a>
+	</div>
+	<div class="country-list">        
+	 <a class="curr" href="./">Home</a>
+	 <!-- 容器：用于插入动态生成的国家链接 -->
+	 <div id="country-links" >
+	     <!-- 链接将通过 JavaScript 插入到这里 -->
+	 </div>
+	</div>
+	</header>  
+	<main>      
+	  <script>
+		  // 国家数据（可扩展）
+		  const countries = [
+		      { name: 'China', adjective: 'Chinese', slug: 'china' },
+		      { name: 'India', adjective: 'Indian', slug: 'india' },
+		      { name: 'US', adjective: 'American', slug: 'us' },
+		      { name: 'Indonesia', adjective: 'Indonesian', slug: 'indonesia' },
+		      { name: 'Brazil', adjective: 'Brazilian', slug: 'brazil' },
+		      { name: 'Pakistan', adjective: 'Pakistani', slug: 'pakistan' },
+		      { name: 'Nigeria', adjective: 'Nigerian', slug: 'nigeria' },
+		      { name: 'Bangladesh', adjective: 'Bangladeshi', slug: 'bangladesh' },
+		      { name: 'Russia', adjective: 'Russian', slug: 'russia' },
+		      { name: 'Japan', adjective: 'Japanese', slug: 'japan' }
+		  ];
+		  countries.forEach(country => {
+		      document.write(`
+		          <section>
+		              <h2><a href="./${country.slug}-phone-number-generator.html" title="${country.name} Phone Number Generator">
+		                  ${country.name} Phone Number Generator
+		              </a></h2>
+		              <p>Generate valid ${country.name} phone numbers with our tool. Perfect for various applications and tests.</p>
+		              <a href="./${country.slug}-phone-number-generator.html" title="Generate ${country.name} Phone Number">
+		                  <button>Generate ${country.name} Phone Number</button>
+		              </a>
+		          </section>
+		      `);
+		  });
+	  </script>
+	</main>    
+	<footer>    Copyright 2025 &copy; <a href="./" style="color:#333;">Phone Number Generator</a>. All rights reserved.</footer>
+<script>
+	document.addEventListener('DOMContentLoaded', () => {
+	    
+	
+	    // 生成链接的函数
+	    const generateLinks = () => {
+	        const container = document.getElementById('country-links');
+	        countries.forEach(country => {
+	            const link = document.createElement('a');
+	            link.href = `${country.slug}-phone-number-generator.html`;
+	            link.title = `${country.name} Phone Number Generator`;
+	            link.ariaLabel = `Generate ${country.adjective} phone numbers`;
+	            link.textContent = country.name;
+	            link.classList.add('country-link'); // 添加样式类
+	            container.appendChild(link);
+	        });
+	    };
+	
+	    generateLinks();
+	});
+</script>
+</body>
+</html>

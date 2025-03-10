@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>    
+	<meta charset="UTF-8">    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>China Phone Number Generator - Generate Authentic & Random Chinese Numbers</title>
+	<meta name="description" content="Easily generate random Chinese phone numbers for testing, verification, and other purposes. Authentic format with comprehensive coverage across China.">
+	<link rel="stylesheet" href="../styles.css"> <!-- 这里连接到您的CSS样式表 -->
+</head>
+<body>    
+	<header>    
+	<h1 class="logo" >  <a href="../hi/" title="Phone Number Generator">Phone Number Generator</a></h1>  
+	<div class="language-list">   
+	 <a  href="./china-phone-number-generator.html" title="English">English</a>    
+	<a class="curr" href="./hi/china-phone-number-generator.html" title="हिन्दी">हिन्दी</a>    
+	<a href="./tl/china-phone-number-generator.html" title="Filipino">Filipino</a></div>
+	<div class="country-list">        
+	 <a href="./index.html">Home</a>
+	 <!-- 容器：用于插入动态生成的国家链接 -->
+	 <div id="country-links" >
+	     <!-- 链接将通过 JavaScript 插入到这里 -->
+	 </div>
+	</div>
+	</header>  
+	<main>      
+	 <section>    
+	 <h1><a href="./china-phone-number-generator.html" style="color: black; text-decoration:none;">China Phone Number Generator</a></h1>    
+	 <p>Generate valid China phone numbers with our tool. Perfect for various applications and tests.</p>
+	 </section>
+	 <section>    <h2>Generate China Phone Number</h2>    <p style="margin-top: 5px;">Note: These numbers are randomly generated and may not be valid for actual use.</p>    <button id="generateButton">Generate Phone Number</button>        <div id="phoneNumberDisplay" class="number-display" style="margin-top:10px"></div>    <div id="errorDisplay" class="error-display"></div></section>
+	 <section>    <h2>China Phone Number Format</h2>    <p>The standard format for Chinese phone numbers is 1xx-xxxx-xxxx, where '1' is always the prefix, followed by a 2-digit operator code and then an 8-digit user number.</p></section>
+	 <section>    <h2>Major Mobile Operators in China</h2>    <ul>        <li>China Mobile: Starting with 134, 135, 136, etc.</li>        <li>China Unicom: Starting with 130, 131, 132, etc.</li>        <li>China Telecom: Starting with 133, 149, etc.</li>    </ul></section>
+	 <section>    <h2>China's Virtual Phone Number Providers</h2>    <p>In addition to the traditional operators, there are many virtual phone number providers in China offering services for business and private use.</p></section>
+	</main>    
+	<footer>    Copyright 2025 &copy; <a href="./" style="color:#333;">Phone Number Generator</a>. All rights reserved.</footer>
+<script>
+	document.addEventListener('DOMContentLoaded', () => {
+	    
+		  // 国家数据（可扩展）
+		  const countries = [
+			  { name: 'China', adjective: 'Chinese', slug: 'china' },
+			  { name: 'India', adjective: 'Indian', slug: 'india' },
+			  { name: 'US', adjective: 'American', slug: 'us' },
+			  { name: 'Indonesia', adjective: 'Indonesian', slug: 'indonesia' },
+			  { name: 'Brazil', adjective: 'Brazilian', slug: 'brazil' },
+			  { name: 'Pakistan', adjective: 'Pakistani', slug: 'pakistan' },
+			  { name: 'Nigeria', adjective: 'Nigerian', slug: 'nigeria' },
+			  { name: 'Bangladesh', adjective: 'Bangladeshi', slug: 'bangladesh' },
+			  { name: 'Russia', adjective: 'Russian', slug: 'russia' },
+			  { name: 'Japan', adjective: 'Japanese', slug: 'japan' }
+		  ];
+	
+	    // 生成链接的函数
+	    const generateLinks = () => {
+	        const container = document.getElementById('country-links');
+	        countries.forEach(country => {
+	            const link = document.createElement('a');
+	            link.href = `${country.slug}-phone-number-generator.html`;
+	            link.title = `${country.name} Phone Number Generator`;
+	            link.ariaLabel = `Generate ${country.adjective} phone numbers`;
+	            link.textContent = country.name;
+	            link.classList.add('country-link'); // 添加样式类
+				if (country.slug=='china'){
+					link.classList.add('curr'); // 添加样式类
+				}
+	            container.appendChild(link);
+	        });
+	    };
+	
+	    generateLinks();
+	});
+</script>
+<script>    document.getElementById('generateButton').addEventListener('click', function() {        try {            const phoneNumber = generateChinaPhoneNumber();            document.getElementById('phoneNumberDisplay').innerHTML += phoneNumber + '<br />';            document.getElementById('errorDisplay').innerHTML = '';        } catch (error) {            document.getElementById('errorDisplay').innerHTML = 'Failed to generate number. Please try again.';        }    });
+    function generateChinaPhoneNumber() {        const prefix = '1';        const secondDigit = Math.floor(Math.random() * 7) + 3;         let restOfNumber = '';        for(let i = 0; i < 9; i++) {            restOfNumber += Math.floor(Math.random() * 10);        }        return prefix + secondDigit + restOfNumber;    }</script>
+</body>
+</html>
